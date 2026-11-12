@@ -1,0 +1,42 @@
+﻿@model GoldfieldsConnect.ViewModels.TakeAssessmentViewModel
+@{
+    ViewData["Title"] = "Online Test: " + Model.Assessment.Title;
+}
+
+<div class="d-flex justify-content-between bg-dark text-white p-3 rounded mb-4">
+    <h5>@Model.Assessment.Title</h5>
+    <h4 id="timer" class="text-warning">--:--</h4>
+</div>
+
+<form id="testForm" asp-action="SubmitTest" method="post">
+    <input type="hidden" asp-for="Assessment.Id" />
+    @foreach (var q in Model.Questions)
+    {
+        <div class="card p-3 mb-3 shadow-sm">
+            <h6>@q.QuestionText</h6>
+            <input type="text" name="Answers[@q.Id]" class="form-control" placeholder="Your answer" />
+        </div>
+    }
+    <button type="submit" class="btn btn-success">Submit Test</button>
+</form>
+
+@section Scripts {
+    <script>
+        // LIVE TIMER LOGIC
+        let timeLeft = @Model.TimeLimitInSeconds;
+        let timerElement = document.getElementById("timer");
+
+        let countdown = setInterval(function () {
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                alert("Time is up! Submitting your test.");
+                document.getElementById("testForm").submit();
+            } else {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                timerElement.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            }
+            timeLeft -= 1;
+        }, 1000);
+    </script>
+}

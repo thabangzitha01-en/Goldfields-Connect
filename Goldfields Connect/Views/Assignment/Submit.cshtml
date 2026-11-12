@@ -1,0 +1,19 @@
+﻿@model GoldfieldsConnect.ViewModels.SubmitAssignmentViewModel
+@{
+    ViewData["Title"] = "Submit Assignment";
+}
+<div class="card p-4 shadow-sm">
+    <h4>@Model.AssignmentTitle</h4>
+    <form asp-action="Submit" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="AssignmentId" />
+        <div class="mb-3">
+            <label asp-for="SubmissionFile" class="form-label">Upload File</label>
+            <input asp-for="SubmissionFile" type="file" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="TextSubmission" class="form-label">Or type answer here</label>
+            <textarea asp-for="TextSubmission" class="form-control" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color:#2e1a47;">Submit Work</button>
+    </form>
+</div>

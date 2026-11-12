@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Academic Dashboard";
+}
+
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <h4>Welcome back, Academic Admin!</h4>
+        <p class="text-muted">Manage institutional academic records</p>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="col-md-3 mb-4">
+        <div class="card stat-card p-3 border-start border-4 border-primary">
+            <h6 class="text-muted">Pending Enrolments</h6>
+            <h3 class="fw-bold mb-0">12</h3>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card stat-card p-3 border-start border-4 border-warning">
+            <h6 class="text-muted">Pending Result Approvals</h6>
+            <h3 class="fw-bold mb-0">5</h3>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card stat-card p-3 border-start border-4 border-success">
+            <h6 class="text-muted">Active Programmes</h6>
+            <h3 class="fw-bold mb-0">8</h3>
+        </div>
+    </div>
+    <div class="col-md-3 mb-4">
+        <div class="card stat-card p-3 border-start border-4 border-info">
+            <h6 class="text-muted">Upcoming Exams</h6>
+            <h3 class="fw-bold mb-0">3</h3>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-md-12">
+        <div class="card p-3 shadow-sm">
+            <h5>Academic Quick Actions</h5>
+            <div class="d-flex gap-2 mt-3">
+                <a href="/Student/Create" class="btn btn-primary">Register New Student</a>
+                <a href="/Result/ApproveAndPublish" class="btn btn-success">Publish Results</a>
+            </div>
+        </div>
+    </div>
+</div>

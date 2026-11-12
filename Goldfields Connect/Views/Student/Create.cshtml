@@ -1,0 +1,22 @@
+﻿@model GoldfieldsConnect.ViewModels.CreateStudentViewModel
+@{
+    ViewData["Title"] = "Register Student";
+}
+
+<div class="card p-4 shadow-sm mt-4">
+    <h4>Register New Student</h4>
+    <form asp-action="Create" method="post">
+        <div class="row">
+            <div class="col-md-6 mb-3"><label>First Name</label><input asp-for="FirstName" class="form-control" /><span asp-validation-for="FirstName" class="text-danger"></span></div>
+            <div class="col-md-6 mb-3"><label>Last Name</label><input asp-for="LastName" class="form-control" /><span asp-validation-for="LastName" class="text-danger"></span></div>
+            <div class="col-md-6 mb-3"><label>Email</label><input asp-for="Email" class="form-control" /><span asp-validation-for="Email" class="text-danger"></span></div>
+            <div class="col-md-6 mb-3"><label>Student Number</label><input asp-for="StudentNumber" class="form-control" /><span asp-validation-for="StudentNumber" class="text-danger"></span></div>
+            <div class="col-md-12 mb-3">
+                <label>Programme</label>
+                <select asp-for="ProgrammeId" asp-items="Model.ProgrammesList" class="form-select"><option value="">-- Select Programme --</option></select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color:#2e1a47;">Save Student</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

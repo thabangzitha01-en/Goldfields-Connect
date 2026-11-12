@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Student Support";
+}
+<div class="card p-4 shadow-sm mt-4">
+    <h4>Submit a Support Ticket</h4>
+    <form action="/Support/SubmitTicket" method="post">
+        <div class="mb-3">
+            <label class="form-label">Subject</label>
+            <input type="text" name="Subject" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">How can we help you?</label>
+            <textarea name="Description" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="background-color:#2e1a47;">Submit Ticket</button>
+    </form>
+</div>
